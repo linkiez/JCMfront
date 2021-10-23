@@ -1,5 +1,6 @@
 <div class="card">
-  <p-table
+  <p-messages></p-messages>
+    <p-table
     #dt
     [value]="produtos"
     [paginator]="true"
@@ -8,10 +9,13 @@
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [rowsPerPageOptions]="[10, 25, 50]"
     [globalFilterFields]="['nome']"
+    [selection]="true"
+
+
   >
     <ng-template pTemplate="caption">
-      <div class="p-d-flex" >
-        <span class="p-input-icon-left p-ml-auto">
+      <div>
+        <span class="header">
           <h2>Produtos</h2>
           <i class="pi pi-search"></i>
           <input

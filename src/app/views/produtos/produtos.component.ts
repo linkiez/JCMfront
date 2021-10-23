@@ -1,11 +1,16 @@
 import { Produto } from './../../models/produto';
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from 'src/app/service/produto.service';
+import { MessageService } from 'primeng/api';
+
+
+
 
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
   styleUrls: ['./produtos.component.css'],
+  providers: [MessageService]
 })
 export class ProdutosComponent implements OnInit {
   produtos: Produto[] = [];
@@ -14,7 +19,7 @@ export class ProdutosComponent implements OnInit {
 
   rows = 10;
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(private produtoService: ProdutoService, private messageService: MessageService, ) {}
 
   ngOnInit(): void {
     this.getProdutos();
@@ -23,7 +28,7 @@ export class ProdutosComponent implements OnInit {
   getProdutos(): void {
     this.produtoService
       .getProdutos()
-      .subscribe((produtos) => (this.produtos = produtos));
+      .subscribe((produtos) => (this.produtos = produtos), (error) => this.addErrorMessage(error));
   }
 
   next() {
@@ -46,5 +51,9 @@ export class ProdutosComponent implements OnInit {
 
   isFirstPage(): boolean {
     return this.produtos ? this.first === 0 : true;
+  }
+
+  addErrorMessage(message: string) {
+    this.messageService.add({severity:'error', summary:'Erro', detail: message});
   }
 }
