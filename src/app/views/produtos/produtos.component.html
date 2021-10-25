@@ -1,31 +1,47 @@
 <div class="card">
-  <h5>Produtos</h5>
-  <p-table [value]="produtos" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
-      <ng-template pTemplate="header">
-          <tr>
-              <th>Código</th>
-              <th>Nome</th>
-              <th>Preço maior</th>
-              <th>Preço médio</th>
-              <th>Preço menor</th>
-              <th>Última Atualização</th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-produto>
-          <tr>
-              <td>{{produto.id}}</td>
-              <td>{{produto.nome}}</td>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="paginatorleft">
-          <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-      </ng-template>
-      <ng-template pTemplate="paginatorright">
-          <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
-      </ng-template>
+  <p-table
+    [value]="produtos"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+  >
+    <ng-template pTemplate="header">
+      <h2>Produtos</h2>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Preço maior</th>
+        <th>Preço médio</th>
+        <th>Preço menor</th>
+        <th>Última Atualização</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-produto>
+      <tr>
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.nome }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button
+        type="button"
+        icon="pi pi-plus"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button
+        type="button"
+        icon="pi pi-cloud"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
   </p-table>
 </div>
-<ol *ngFor="let produto of produtos">
-  <li>{{produto.nome}}</li>
-</ol>
+

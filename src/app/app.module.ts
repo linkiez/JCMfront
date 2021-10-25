@@ -16,6 +16,8 @@ import {ButtonModule} from 'primeng/button';
 
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {CardModule} from 'primeng/card';
+
 
 
 
@@ -37,7 +39,8 @@ import {MessageModule} from 'primeng/message';
     ButtonModule,
     HttpClientModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

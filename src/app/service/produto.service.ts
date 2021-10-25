@@ -13,6 +13,6 @@ export class ProdutoService {
   ) {}
 
   getProdutos(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(backendHost + 'produtos', {responseType:'json'});
+    return this.http.get<Produto[]>(backendHost + 'produto', {responseType:'json'});
   }
 }
