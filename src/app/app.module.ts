@@ -22,7 +22,6 @@ import {CardModule} from 'primeng/card';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +39,8 @@ import {CardModule} from 'primeng/card';
     HttpClientModule,
     MessagesModule,
     MessageModule,
-    CardModule
+    CardModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

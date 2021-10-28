@@ -1,14 +1,29 @@
 <div class="card">
   <p-table
+    #dt
     [value]="produtos"
     [paginator]="true"
     [rows]="10"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [rowsPerPageOptions]="[10, 25, 50]"
+    [globalFilterFields]="['nome']"
   >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex" >
+        <span class="p-input-icon-left p-ml-auto">
+          <h2>Produtos</h2>
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($event.target.value, 'contains')"
+            placeholder="Pesquisa"
+          />
+        </span>
+      </div>
+    </ng-template>
     <ng-template pTemplate="header">
-      <h2>Produtos</h2>
       <tr>
         <th>Código</th>
         <th>Nome</th>
@@ -44,4 +59,3 @@
     </ng-template>
   </p-table>
 </div>
-
