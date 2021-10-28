@@ -1,0 +1,58 @@
+<div class="p-grid">
+  <h2>Produto</h2>
+  <form id="form1">
+
+    <label for="idProduto">Código:</label>
+    <input type="text" pInputText name="idProduto" id="idProduto" disabled />
+
+    <label for="nomeProduto">Nome:</label>
+    <input
+      name="nomeProduto"
+      type="text"
+      id="nomeProduto"
+      placeholder="Nome"
+      required
+    />
+
+    <label for="categoriaProduto">Categoria:</label>
+    <select name="categoriaProduto" id="categoriaProduto" required>
+      <option value=""></option>
+      <option value="Chapa">Chapa</option>
+      <option value="Barra">Barra</option>
+      <option value="Peça">Peça</option>
+    </select><br>
+    <label>Espessura: </label>
+    <input
+      type="number"
+      name="espessuraProduto"
+      id="espessuraProduto"
+      placeholder="mm"
+      required
+    />
+    <label for="pesoProduto">Peso M²/Linear/Peça:</label>
+    <input
+      type="number"
+      name="pesoProduto"
+      id="pesoProduto"
+      placeholder="kg"
+      required
+    /><br>
+    <label for="criacaoProduto">Data Criação:</label>
+    <input type="text" name="criacaoProduto" id="criacaoProduto" disabled />
+    <label for="alteracaoProduto">Última alteração:</label>
+    <input
+      type="text"
+      name="alteracaoProduto"
+      id="alteracaoProduto"
+      disabled
+    />
+  </form>
+  <hr />
+  <button pButton  name="btExcluir" id="btExcluir" class="p-button-danger">
+    Excluir
+  </button>
+  <button pButton  name="btSalvar" id="btSalvar" class="p-button-success" type='submit' form="form1">
+    Salvar
+  </button>
+  <button pButton  name="btVoltar" id="btVoltar" (click)="goBack()">Voltar</button>
+

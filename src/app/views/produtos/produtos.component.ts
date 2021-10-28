@@ -53,7 +53,7 @@ export class ProdutosComponent implements OnInit {
     return this.produtos ? this.first === 0 : true;
   }
 
-  addErrorMessage(message: string) {
-    this.messageService.add({severity:'error', summary:'Erro', detail: message});
+  addErrorMessage(error: any) {
+    this.messageService.add({severity:'error', summary: 'Erro: ', detail: error.message});
   }
 }

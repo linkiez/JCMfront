@@ -1,0 +1,20 @@
+form {
+  line-height: normal;
+}
+
+form input, form select, button {
+  margin: 0.5em;
+  height: 2em;
+}
+
+#idProduto {
+  width: 75px;
+}
+
+#espessuraProduto{
+  width: 75px;
+}
+
+#pesoProduto {
+  width: 75px;
+}

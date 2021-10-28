@@ -17,6 +17,7 @@ import {ButtonModule} from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {CardModule} from 'primeng/card';
+import { ProdutoComponent } from './views/produto/produto.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {CardModule} from 'primeng/card';
     NavBarComponent,
     HomeComponent,
     ProdutosComponent,
+    ProdutoComponent,
   ],
   imports: [
     BrowserModule,

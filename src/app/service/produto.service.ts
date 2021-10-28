@@ -17,4 +17,8 @@ export class ProdutoService {
   getProdutos(): Observable<Produto[]> {
     return this.http.get<Produto[]>(backendHost + 'produto', {responseType:'json'});
   }
+
+  getProduto(id: number): Observable<Produto>{
+    return this.http.get<Produto>(backendHost + 'produto/'+id, {responseType:'json'})
+  }
 }
