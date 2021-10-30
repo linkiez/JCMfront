@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -13,11 +15,14 @@ import { ProdutosComponent } from './views/produtos/produtos.component';
 
 import { TableModule } from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {CardModule} from 'primeng/card';
 import { ProdutoComponent } from './views/produto/produto.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog'
 
 
 @NgModule({
@@ -39,7 +44,9 @@ import { ProdutoComponent } from './views/produto/produto.component';
     MessagesModule,
     MessageModule,
     CardModule,
-
+    FormsModule,
+    BrowserAnimationsModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

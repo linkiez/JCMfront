@@ -18,3 +18,7 @@ form input, form select, button {
 #pesoProduto {
   width: 75px;
 }
+
+#nomeProduto {
+  width: 300px;
+}

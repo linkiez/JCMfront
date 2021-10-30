@@ -1,12 +1,20 @@
 <div class="p-grid">
+  <p-messages></p-messages>
   <h2>Produto</h2>
   <form id="form1">
-
     <label for="idProduto">Código:</label>
-    <input type="text" pInputText name="idProduto" id="idProduto" disabled />
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="produto.id"
+      name="idProduto"
+      id="idProduto"
+      disabled
+    />
 
     <label for="nomeProduto">Nome:</label>
     <input
+      [(ngModel)]="produto.nome"
       name="nomeProduto"
       type="text"
       id="nomeProduto"
@@ -15,44 +23,84 @@
     />
 
     <label for="categoriaProduto">Categoria:</label>
-    <select name="categoriaProduto" id="categoriaProduto" required>
+    <select
+      [(ngModel)]="produto.categoria"
+      name="categoriaProduto"
+      id="categoriaProduto"
+      required
+    >
       <option value=""></option>
       <option value="Chapa">Chapa</option>
       <option value="Barra">Barra</option>
-      <option value="Peça">Peça</option>
-    </select><br>
+      <option value="Peça">Peça</option></select
+    ><br />
+
     <label>Espessura: </label>
     <input
+      [(ngModel)]="produto.espessura"
       type="number"
       name="espessuraProduto"
       id="espessuraProduto"
       placeholder="mm"
       required
     />
+
     <label for="pesoProduto">Peso M²/Linear/Peça:</label>
     <input
+      [(ngModel)]="produto.peso"
       type="number"
       name="pesoProduto"
       id="pesoProduto"
       placeholder="kg"
       required
-    /><br>
+    /><br />
+
     <label for="criacaoProduto">Data Criação:</label>
-    <input type="text" name="criacaoProduto" id="criacaoProduto" disabled />
+    <input
+      type="text"
+      [(ngModel)]="produto.dataCriacao"
+      datetime="dd-MM-yyyy HH:mm:ss"
+      name="criacaoProduto"
+      id="criacaoProduto"
+      disabled
+    />
+
     <label for="alteracaoProduto">Última alteração:</label>
     <input
       type="text"
+      [(ngModel)]="produto.dataAtualizacao"
       name="alteracaoProduto"
       id="alteracaoProduto"
       disabled
     />
   </form>
   <hr />
-  <button pButton  name="btExcluir" id="btExcluir" class="p-button-danger">
+  <button pButton name="btExcluir" id="btExcluir" class="p-button-danger" (click)="confirm()">
     Excluir
   </button>
-  <button pButton  name="btSalvar" id="btSalvar" class="p-button-success" type='submit' form="form1">
+
+  <button
+    pButton
+    name="btSalvar"
+    id="btSalvar"
+    class="p-button-success"
+    type="submit"
+    form="form1"
+    (click)="addOrUpdateProduto()"
+  >
     Salvar
   </button>
-  <button pButton  name="btVoltar" id="btVoltar" (click)="goBack()">Voltar</button>
 
+  <button pButton name="btVoltar" id="btVoltar" routerLink="/produtos/">
+    Voltar
+  </button>
+  <p-confirmDialog #cd [style]="{width: '50vw'}">
+    <ng-template pTemplate="header">
+        <h3>Confirmação</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>
+</div>

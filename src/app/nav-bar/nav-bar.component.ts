@@ -15,9 +15,13 @@ export class NavBarComponent implements OnInit {
     this.items = [
       {
         label: 'Cadastro',
-        items: [{ label: 'Produtos', url: '/produtos'}, { label: 'Fonecedores' }],
+        items: [
+          { label: 'Produtos', url: '/produtos' },
+          { label: 'Fonecedores' },
+        ],
       },
-      { label: 'Vendas' },{label: "Compras", items: [{label:'Pedido de Compras'}]}
+      { label: 'Vendas' },
+      { label: 'Compras', items: [{ label: 'Pedido de Compras' }] },
     ];
   }
 }

@@ -38,7 +38,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-produto>
-      <tr>
+      <tr routerLink="/produto/{{produto.id}}">
         <td>{{ produto.id }}</td>
         <td>{{ produto.nome }}</td>
         <td></td>
@@ -52,6 +52,7 @@
         type="button"
         icon="pi pi-plus"
         styleClass="p-button-text"
+        routerLink='/produto/'
       ></p-button>
     </ng-template>
     <ng-template pTemplate="paginatorright">
