@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="29mm"
+   height="29mm"
+   viewBox="0 0 29 29"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="jcmfavicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.1524866"
+     inkscape:cx="57.435465"
+     inkscape:cy="36.724983"
+     inkscape:window-width="1920"
+     inkscape:window-height="1013"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     width="29mm" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g194"
+       transform="scale(0.99357714,1.0042964)">
+      <path
+         d="M -4.278e-8,8.475201 7.3056296,0.88856833 13.065896,6.9298376 -4.2780003e-8,20.276736 Z"
+         style="fill:#9b9d9f;fill-rule:evenodd;stroke-width:0.10222"
+         id="path9" />
+      <path
+         d="M 7.0246266,15.780994 0.84285579,21.681598 7.8676357,28.84689 20.05404,28.713074 Z"
+         style="fill:#e30016;fill-rule:evenodd;stroke:#e30016;stroke-width:0.0579486;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none"
+         id="path11" />
+      <path
+         d="M 15.559565,22.10343 28.97672,8.8267769 l 0.210747,4.9172571 -8.28914,8.078383 0.913265,0.983521 7.375875,-7.02479 v 4.776919 l -7.516377,7.516376 z"
+         style="fill:#d9dadb;fill-rule:evenodd;stroke-width:0.10222"
+         id="path13" />
+      <path
+         d="M 14.10389,0.10194377 8.8167391,0.16232518 22.267984,13.182181 28.274049,7.456956 20.577816,-3.3421e-7 15.923888,0.03233188 24.151379,7.8770295 23.200681,8.8570442 Z"
+         style="fill:#d9dadb;fill-rule:evenodd;stroke-width:0.10222"
+         id="path15" />
+    </g>
+  </g>
+</svg>

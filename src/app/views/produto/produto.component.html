@@ -10,6 +10,7 @@
       name="idProduto"
       id="idProduto"
       disabled
+      class="p-inputtext"
     />
 
     <label for="nomeProduto">Nome:</label>
@@ -20,6 +21,7 @@
       id="nomeProduto"
       placeholder="Nome"
       required
+      class="p-inputtext"
     />
 
     <label for="categoriaProduto">Categoria:</label>
@@ -43,6 +45,7 @@
       id="espessuraProduto"
       placeholder="mm"
       required
+      class="p-inputtext"
     />
 
     <label for="pesoProduto">Peso M²/Linear/Peça:</label>
@@ -53,29 +56,37 @@
       id="pesoProduto"
       placeholder="kg"
       required
+      class="p-inputtext"
     /><br />
 
     <label for="criacaoProduto">Data Criação:</label>
     <input
       type="text"
-      [(ngModel)]="produto.dataCriacao"
-      datetime="dd-MM-yyyy HH:mm:ss"
+      value="{{ produto.dataCriacao | date: 'dd/MM/yyyy HH:mm:ss' }}"
       name="criacaoProduto"
       id="criacaoProduto"
       disabled
+      class="p-inputtext"
     />
 
     <label for="alteracaoProduto">Última alteração:</label>
     <input
       type="text"
-      [(ngModel)]="produto.dataAtualizacao"
+      value="{{ produto.dataAtualizacao | date: 'dd/MM/yyyy HH:mm:ss' }}"
       name="alteracaoProduto"
       id="alteracaoProduto"
       disabled
+      class="p-inputtext"
     />
   </form>
   <hr />
-  <button pButton name="btExcluir" id="btExcluir" class="p-button-danger" (click)="confirm()">
+  <button
+    pButton
+    name="btExcluir"
+    id="btExcluir"
+    class="p-button-danger"
+    (click)="confirm()"
+  >
     Excluir
   </button>
 
@@ -94,13 +105,26 @@
   <button pButton name="btVoltar" id="btVoltar" routerLink="/produtos/">
     Voltar
   </button>
-  <p-confirmDialog #cd [style]="{width: '50vw'}">
+
+  <p-confirmDialog #cd [style]="{ width: '50vw' }">
     <ng-template pTemplate="header">
-        <h3>Confirmação</h3>
+      <h3>Confirmação</h3>
     </ng-template>
     <ng-template pTemplate="footer">
-        <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
-        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+      <button
+        type="button"
+        pButton
+        icon="pi pi-times"
+        label="Não"
+        (click)="cd.reject()"
+      ></button>
+      <button
+        type="button"
+        pButton
+        icon="pi pi-check"
+        label="Sim"
+        (click)="cd.accept()"
+      ></button>
     </ng-template>
-</p-confirmDialog>
+  </p-confirmDialog>
 </div>

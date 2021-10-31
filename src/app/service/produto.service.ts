@@ -27,7 +27,6 @@ export class ProdutoService {
 
   updateProduto(produto: Produto): Observable<Object>{
     return this.http.put(backendHost + "produto/"+produto.id, produto, {responseType:'json'})
-
   }
 
   deleteProduto(produto: Produto): Observable<Object> {

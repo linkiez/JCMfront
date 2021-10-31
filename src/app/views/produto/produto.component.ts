@@ -14,7 +14,7 @@ import {ConfirmationService} from 'primeng/api'
   providers: [MessageService, ConfirmationService],
 })
 export class ProdutoComponent implements OnInit {
-  @Input() produto: Produto = new Produto();
+  produto: Produto = new Produto();
 
   constructor(
     private route: ActivatedRoute,
@@ -36,9 +36,6 @@ export class ProdutoComponent implements OnInit {
         (error) => this.addErrorMessage(error)
       );
 
-    }
-    if (id == 0) {
-      this.produto = new Produto();
     }
   }
   addOrUpdateProduto() {
@@ -68,10 +65,6 @@ export class ProdutoComponent implements OnInit {
       (response: any) => (this.addSucessMessage("Produto apagado com sucesso.")),
       (error) => this.addErrorMessage(error)
     );
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 
   addErrorMessage(response: any) {

@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit {
         label: 'Cadastro',
         items: [
           { label: 'Produtos', url: '/produtos' },
-          { label: 'Fonecedores' },
+          { label: 'Fonecedores', url: '/fornecedores' },
         ],
       },
       { label: 'Vendas' },

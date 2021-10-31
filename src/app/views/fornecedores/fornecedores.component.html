@@ -1,8 +1,8 @@
 <div class="card">
   <p-messages></p-messages>
-    <p-table
+  <p-table
     #dt
-    [value]="produtos"
+    [value]="fornecedores"
     [paginator]="true"
     [rows]="10"
     [showCurrentPageReport]="true"
@@ -10,13 +10,11 @@
     [rowsPerPageOptions]="[10, 25, 50]"
     [globalFilterFields]="['nome']"
     [selection]="true"
-
-
   >
     <ng-template pTemplate="caption">
       <div>
         <span class="header">
-          <h2>Produtos</h2>
+          <h2>Fornecedores</h2>
           <i class="pi pi-search"></i>
           <input
             pInputText
@@ -32,20 +30,18 @@
       <tr>
         <th>Código</th>
         <th>Nome</th>
-        <th>Preço maior</th>
-        <th>Preço médio</th>
-        <th>Preço menor</th>
-        <th>Última Atualização</th>
+        <th>Contato</th>
+        <th>Telefone</th>
+        <th>Email</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-produto>
-      <tr routerLink="/produto/{{produto.id}}">
-        <td>{{ produto.id }}</td>
-        <td>{{ produto.nome }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <ng-template pTemplate="body" let-fornecedor>
+      <tr routerLink="/fornecedor/{{ fornecedor.id }}">
+        <td>{{ fornecedor.id }}</td>
+        <td>{{ fornecedor.nome }}</td>
+        <td>{{ fornecedor.contato }}</td>
+        <td>{{ fornecedor.telefone }}</td>
+        <td>{{ fornecedor.email }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="paginatorleft">
@@ -53,7 +49,7 @@
         type="button"
         icon="pi pi-plus"
         styleClass="p-button-text"
-        routerLink='/produto/'
+        routerLink="/fornecedor/"
       ></p-button>
     </ng-template>
     <ng-template pTemplate="paginatorright">
