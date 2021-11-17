@@ -4,6 +4,6 @@ export class Produto {
   categoria?: string;
   espessura?: number;
   peso?: number;
-  dataCriacao?: Date;
-  dataAtualizacao?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }

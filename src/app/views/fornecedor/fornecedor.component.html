@@ -147,7 +147,7 @@
         name="inputDCriacao"
         disabled
         class="p-inputtext col-12"
-        value="{{ fornecedor.dataCriacao | date: 'dd/MM/yyyy HH:mm:ss' }}"
+        value="{{ fornecedor.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }}"
       />
     </div>
 
@@ -160,7 +160,7 @@
         name="inputDAlteracao"
         disabled
         class="p-inputtext col-12"
-        value="{{ fornecedor.dataAtualizacao | date: 'dd/MM/yyyy HH:mm:ss' }}"
+        value="{{ fornecedor.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }}"
       />
     </div>
 

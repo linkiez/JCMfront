@@ -11,6 +11,6 @@ export class Fornecedor{
   ie_rg?: string;
   cnpj_cpf?: string;
   descricao?: string;
-  dataCriacao?: Date;
-  dataAtualizacao?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
