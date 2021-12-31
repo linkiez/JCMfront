@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit {
         ],
       },
       { label: 'Vendas' },
-      { label: 'Compras', items: [{ label: 'Pedido de Compras' }] },
+      { label: 'Compras', items: [{ label: 'Pedido de Compras', url: '/pedidoscompras' }] },
     ];
   }
 }

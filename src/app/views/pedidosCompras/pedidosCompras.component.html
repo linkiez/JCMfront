@@ -1,0 +1,63 @@
+<div class="card">
+  <p-messages></p-messages>
+  <p-table
+    #dt
+    [value]="pedidosCompras"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [globalFilterFields]="['id', 'pedido','Fornecedore.nome']"
+    [selection]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div>
+        <span class="header">
+          <h2>Fornecedores</h2>
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($event.target.value, 'contains')"
+            placeholder="Pesquisa"
+            class="p-inputtext"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Código</th>
+        <th>Pedido</th>
+        <th>Data Emissão</th>
+        <th>Fornecedor</th>
+        <th>Total</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pedidosCompras>
+      <tr routerLink="/pedidosCompras/{{ pedidosCompras.id }}">
+        <td>{{ pedidosCompras.id }}</td>
+        <td>{{ pedidosCompras.pedido }}</td>
+        <td>{{ pedidosCompras.data_emissao | date : 'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{ pedidosCompras.Fornecedore.nome }}</td>
+        <td>{{ pedidosCompras.total | currency : 'BRL'}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button
+        type="button"
+        icon="pi pi-plus"
+        styleClass="p-button-text"
+        routerLink="/fornecedor/"
+      ></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button
+        type="button"
+        icon="pi pi-cloud"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+  </p-table>
+</div>
