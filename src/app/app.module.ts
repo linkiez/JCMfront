@@ -13,6 +13,8 @@ import { MessageModule } from 'primeng/message';
 import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputMaskModule } from 'primeng/inputmask';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -22,7 +24,7 @@ import { ProdutoComponent } from './views/produto/produto.component';
 import { FornecedoresComponent } from './views/fornecedores/fornecedores.component';
 import { FornecedorComponent } from './views/fornecedor/fornecedor.component';
 import { PedidosComprasComponent } from './views/pedidosCompras/pedidosCompras.component';
-
+import { PedidoCompraComponent } from './views/pedidoCompra/pedidoCompra.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { PedidosComprasComponent } from './views/pedidosCompras/pedidosCompras.c
     FornecedoresComponent,
     FornecedorComponent,
     PedidosComprasComponent,
+    PedidoCompraComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,8 @@ import { PedidosComprasComponent } from './views/pedidosCompras/pedidosCompras.c
     BrowserAnimationsModule,
     ConfirmDialogModule,
     InputMaskModule,
+    AutoCompleteModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

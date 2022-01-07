@@ -1,0 +1,186 @@
+<div class="container">
+  <p-messages></p-messages>
+  <h2>Fornecedor</h2>
+  <form
+    id="form1"
+    method="post"
+    class="p-formgrid p-grid"
+    (ngSubmit)="addOrUpdatePedidoCompra()"
+  >
+    <div class="p-field col-1">
+      <label for="inputId">Código: </label>
+      <input
+        pInputText
+        type="text"
+        id="inputId"
+        name="inputId"
+        class="p-inputtext col-12"
+        disabled
+        [(ngModel)]="pedidoCompra.id"
+      />
+    </div>
+    <div class="p-field col-1">
+      <label for="inputPedido">Pedido: </label>
+      <input
+        pInputText
+        type="text"
+        id="inputPedido"
+        name="inputPedido"
+        class="p-inputtext col-12"
+        [(ngModel)]="pedidoCompra.pedido"
+      />
+    </div>
+
+    <div class="col-2">
+      <label for="inputDEmissao">Data emissão: </label
+      ><input
+        pInputText
+        type="text"
+        id="inputDCriacao"
+        name="inputDCriacao"
+        disabled
+        class="p-inputtext col-12"
+        value="{{ pedidoCompra.data_emissao | date: 'dd/MM/yyyy HH:mm:ss' }}"
+      />
+    </div>
+
+    <div class="p-field col-5">
+      <label for="inputFornecedor">Fornecedor: </label>
+      <p-autoComplete
+        [(ngModel)]="fornecedor"
+        [suggestions]="resultsFornecedor"
+        (completeMethod)="search($event)"
+        field="nome"
+        [forceSelection]="true"
+        [required]="true"
+        [forceSelection]="true"
+        class=""
+        id="inputNome"
+        name="inputNome"
+        [style]="{ width: '100%' }"
+        [inputStyle]="{ width: '100%' }"
+      ></p-autoComplete>
+    </div>
+
+    <div class="col-3">
+      <label for="inputContato">Contato: </label>
+      <input
+        pInputText
+        type="text"
+        id="inputContato"
+        name="inputContato"
+        class="p-inputtext col-12"
+        [(ngModel)]="fornecedor.contato"
+      />
+    </div>
+
+    <div class="col-2">
+      <label for="inputCPagamento">Condição de Pagamento: </label>
+      <input
+        pInputText
+        type="text"
+        id="inputCPagamento"
+        name="inputCPagamento"
+        class="p-inputtext col-12"
+        [(ngModel)]="pedidoCompra.cond_pagamento"
+      />
+    </div>
+
+    <div class="col-2">
+      <label for="inputTransport">Transporte: </label>
+      <input
+        pInputText
+        type="text"
+        id="inputTransport"
+        name="inputTransport"
+        class="p-inputtext col-12"
+        [(ngModel)]="pedidoCompra.transporte"
+      />
+    </div>
+
+    <div class="col-2">
+      <label for="inputFrete">Frete: </label>
+      <input
+        pInputText
+        type="number"
+        id="inputFrete"
+        name="inputFrete"
+        class="p-inputtext col-12"
+        [(ngModel)]="pedidoCompra.frete"
+      />
+    </div>
+
+    <div class="col-3">
+      <label for="inputDCriacao">Data criação: </label
+      ><input
+        pInputText
+        type="text"
+        id="inputDCriacao"
+        name="inputDCriacao"
+        disabled
+        class="p-inputtext col-12"
+        value="{{ pedidoCompra.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }}"
+      />
+    </div>
+
+    <div class="col-3">
+      <label for="inputDAlteracao">Última alteração: </label
+      ><input
+        pInputText
+        type="text"
+        id="inputDAlteracao"
+        name="inputDAlteracao"
+        disabled
+        class="p-inputtext col-12"
+        value="{{ pedidoCompra.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }}"
+      />
+    </div>
+  </form>
+
+  <hr />
+  
+  <button
+    pButton
+    name="btExcluir"
+    id="btExcluir"
+    class="p-button-danger"
+    (click)="confirm()"
+  >
+    Excluir
+  </button>
+  <button
+    pButton
+    name="btSalvar"
+    id="btSalvar"
+    class="p-button-success"
+    type="submit"
+    form="form1"
+  >
+    Salvar
+  </button>
+  <button pButton name="btVoltar" id="btVoltar" routerLink="/pedidoscompras/">
+    Voltar
+  </button>
+</div>
+
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <h3>Confirmação</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      label="Não"
+      (click)="cd.reject()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      label="Sim"
+      (click)="cd.accept()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

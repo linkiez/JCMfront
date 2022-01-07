@@ -6,7 +6,7 @@ import { PedidoComprasService } from '../../service/pedidoCompras.service';
 @Component({
   selector: 'app-pedidosCompras',
   templateUrl: './pedidosCompras.component.html',
-  styleUrls: ['./pedidosCompras.component.css'],
+  styleUrls: ['./pedidosCompras.component.scss'],
   providers: [MessageService]
 })
 export class PedidosComprasComponent implements OnInit {

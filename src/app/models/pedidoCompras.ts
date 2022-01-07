@@ -1,7 +1,7 @@
 import { Fornecedor } from './fornecedor';
 import { Produto } from './produto';
 
-export class PedidoCompras {
+export interface PedidoCompras {
   id?: number;
   pedido?: string;
   data_emissao?: Date;
@@ -10,12 +10,12 @@ export class PedidoCompras {
   transporte?: string;
   createdAt?: Date;
   updatedAt?: Date;
-  FornecedoreId?: Number;
+  FornecedoreId?: number;
   Fornecedore?: Fornecedor;
   PedidoComprasItens?: PedidoComprasItens[];
 }
 
-export class PedidoComprasItens {
+export interface PedidoComprasItens {
   id?: number;
   dimensao?: string;
   quantidade?: number;

@@ -8,11 +8,11 @@ import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-fornecedor',
   templateUrl: './fornecedor.component.html',
-  styleUrls: ['./fornecedor.component.css'],
+  styleUrls: ['./fornecedor.component.scss'],
   providers: [MessageService, ConfirmationService],
 })
 export class FornecedorComponent implements OnInit {
-  fornecedor: Fornecedor = new Fornecedor();
+  fornecedor: Fornecedor = {};
 
   constructor(
     private route: ActivatedRoute,

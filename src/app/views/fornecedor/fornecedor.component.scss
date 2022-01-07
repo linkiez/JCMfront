@@ -1,0 +1,14 @@
+form select,
+button {
+  margin: 0.5em;
+  height: 2em;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form label {
+  font-size: 0.8em;
+}

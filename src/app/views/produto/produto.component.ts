@@ -10,11 +10,11 @@ import {ConfirmationService} from 'primeng/api'
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css'],
+  styleUrls: ['./produto.component.scss'],
   providers: [MessageService, ConfirmationService],
 })
 export class ProdutoComponent implements OnInit {
-  produto: Produto = new Produto();
+  produto: Produto = {};
 
   constructor(
     private route: ActivatedRoute,

@@ -6,7 +6,7 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-fornecedores',
   templateUrl: './fornecedores.component.html',
-  styleUrls: ['./fornecedores.component.css'],
+  styleUrls: ['./fornecedores.component.scss'],
   providers: [MessageService]
 })
 export class FornecedoresComponent implements OnInit {

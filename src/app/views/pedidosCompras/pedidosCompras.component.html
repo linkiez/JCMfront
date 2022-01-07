@@ -14,7 +14,7 @@
     <ng-template pTemplate="caption">
       <div>
         <span class="header">
-          <h2>Fornecedores</h2>
+          <h2>Pedidos de Compras</h2>
           <i class="pi pi-search"></i>
           <input
             pInputText
@@ -36,7 +36,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-pedidosCompras>
-      <tr routerLink="/pedidosCompras/{{ pedidosCompras.id }}">
+      <tr routerLink="/pedidocompra/{{pedidosCompras.id}}">
         <td>{{ pedidosCompras.id }}</td>
         <td>{{ pedidosCompras.pedido }}</td>
         <td>{{ pedidosCompras.data_emissao | date : 'dd/MM/yyyy HH:mm'}}</td>
@@ -49,7 +49,7 @@
         type="button"
         icon="pi pi-plus"
         styleClass="p-button-text"
-        routerLink="/fornecedor/"
+        routerLink="/pedidocompra/"
       ></p-button>
     </ng-template>
     <ng-template pTemplate="paginatorright">

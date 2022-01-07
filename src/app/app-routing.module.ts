@@ -6,6 +6,7 @@ import { ProdutoComponent } from './views/produto/produto.component';
 import { FornecedoresComponent } from './views/fornecedores/fornecedores.component';
 import { FornecedorComponent } from './views/fornecedor/fornecedor.component';
 import { PedidosComprasComponent } from './views/pedidosCompras/pedidosCompras.component';
+import { PedidoCompraComponent } from './views/pedidoCompra/pedidoCompra.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'fornecedor', component: FornecedorComponent },
   { path: 'fornecedor/:id', component: FornecedorComponent },
   { path: 'pedidoscompras', component: PedidosComprasComponent},
+  { path: 'pedidocompra/:id', component: PedidoCompraComponent},
+  { path: 'pedidocompra', component: PedidoCompraComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
