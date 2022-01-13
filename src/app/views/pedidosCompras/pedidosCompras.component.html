@@ -26,6 +26,7 @@
         </span>
       </div>
     </ng-template>
+
     <ng-template pTemplate="header">
       <tr>
         <th>Código</th>
@@ -35,6 +36,7 @@
         <th>Total</th>
       </tr>
     </ng-template>
+
     <ng-template pTemplate="body" let-pedidosCompras>
       <tr routerLink="/pedidocompra/{{pedidosCompras.id}}">
         <td>{{ pedidosCompras.id }}</td>
@@ -43,6 +45,7 @@
         <td>{{ pedidosCompras.Fornecedore.nome }}</td>
         <td>{{ pedidosCompras.total | currency : 'BRL'}}</td>
       </tr>
+
     </ng-template>
     <ng-template pTemplate="paginatorleft">
       <p-button
@@ -52,6 +55,7 @@
         routerLink="/pedidocompra/"
       ></p-button>
     </ng-template>
+
     <ng-template pTemplate="paginatorright">
       <p-button
         type="button"
@@ -60,4 +64,5 @@
       ></p-button>
     </ng-template>
   </p-table>
+
 </div>

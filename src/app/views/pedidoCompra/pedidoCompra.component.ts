@@ -20,11 +20,33 @@ import {
   providers: [MessageService, ConfirmationService],
 })
 export class PedidoCompraComponent implements OnInit {
-  pedidoCompra: PedidoCompras = {};
+  pedidoCompra: PedidoCompras = {
+    pedido: '',
+    cond_pagamento: '',
+    frete: 0,
+    transporte: '',
+    Fornecedore: {},
+    PedidoComprasItens: [
+      {
+        dimensao: '',
+        quantidade: 0,
+        peso: 0,
+        preco: 0,
+        ipi: 0,
+        prazo: new Date(),
+        Produto: {
+          nome: '',
+          categoria: '',
+          espessura: 0,
+          peso: 0,
+        },
+      },
+    ],
+  };
+
   fornecedor: Fornecedor = {};
   fornecedores: Fornecedor[] = [];
   resultsFornecedor: Fornecedor[] = [];
-
 
   constructor(
     private pedidoComprasService: PedidoComprasService,
@@ -51,7 +73,6 @@ export class PedidoCompraComponent implements OnInit {
       this.pedidoComprasService.getPedidoCompras(id).subscribe(
         (pedidoCompra) => {
           this.pedidoCompra = pedidoCompra;
-          console.log(this.pedidoCompra);
           this.fornecedor = pedidoCompra.Fornecedore!;
         },
         (error) => this.addErrorMessage(error)
@@ -71,7 +92,10 @@ export class PedidoCompraComponent implements OnInit {
     this.pedidoCompra.Fornecedore = this.fornecedor;
     this.pedidoCompra.FornecedoreId = this.fornecedor.id!;
     this.pedidoComprasService.addPedidoCompras(this.pedidoCompra).subscribe(
-      (response: any) => (this.pedidoCompra.id = response.insertId),
+      (response: any) => {
+        this.pedidoCompra.id = response.id;
+        this.addSucessMessage('Pedido de compras criado com sucesso.');
+      },
       (error) => this.addErrorMessage(error)
     );
   }
@@ -92,8 +116,33 @@ export class PedidoCompraComponent implements OnInit {
         this.addSucessMessage('Pedido de compras apagado com sucesso.'),
       (error) => this.addErrorMessage(error)
     );
-    const formulario: any = document.getElementById('form1');
-    formulario.reset();
+    this.pedidoCompra = {
+      pedido: '',
+      cond_pagamento: '',
+      frete: 0,
+      transporte: '',
+      Fornecedore: {
+        nome: '',
+        contato: '',
+      },
+      PedidoComprasItens: [
+        {
+          dimensao: '',
+          quantidade: 0,
+          peso: 0,
+          preco: 0,
+          ipi: 0,
+          prazo: new Date(),
+          Produto: {
+            nome: '',
+            categoria: '',
+            espessura: 0,
+            peso: 0,
+          },
+        },
+      ],
+    };
+    this.fornecedor = {};
   }
 
   addErrorMessage(response: any) {

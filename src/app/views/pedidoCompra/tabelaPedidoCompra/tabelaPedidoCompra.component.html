@@ -1,0 +1,207 @@
+<p-table
+  #dt
+  [value]="pedidoComprasItens"
+  [paginator]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [selection]="true"
+  class="col-12"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Item</th>
+      <th>Descricão</th>
+      <th>Dimensão</th>
+      <th>Qtde.</th>
+      <th>Peso(Kg)</th>
+      <th>Preço Unitário</th>
+      <th>Preço Total</th>
+      <th>IPI %</th>
+      <th>Data Entrega</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-pedido let-rowIndex="rowIndex">
+    <tr>
+      <td>{{ rowIndex + 1 }}</td>
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-autoComplete
+              [(ngModel)]="pedidoComprasItens[rowIndex].Produto"
+              [suggestions]="resultsProduto"
+              (completeMethod)="search($event)"
+              field="nome"
+              [forceSelection]="true"
+              [required]="true"
+              [forceSelection]="true"
+              class=""
+              id="inputProduto"
+              name="inputProduto"
+              [style]="{ width: '100%' }"
+              [inputStyle]="{ width: '100%' }"
+            ></p-autoComplete>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.Produto.nome }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              id="inputDimensao"
+              name="inputDimensao"
+              class="p-inputtext col-12"
+              [(ngModel)]="pedidoComprasItens[rowIndex].dimensao"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.dimensao }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="number"
+              id="inputQtde"
+              name="inputQtde"
+              class="p-inputtext col-12"
+              [(ngModel)]="pedidoComprasItens[rowIndex].quantidade"
+              (ngModelChange)="calculaTotais()"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.quantidade }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="number"
+              id="inputPeso"
+              name="inputPeso"
+              class="p-inputtext col-12"
+              [(ngModel)]="pedidoComprasItens[rowIndex].peso"
+              (ngModelChange)="calculaTotais()"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.peso | number }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="number"
+              id="inputPreco"
+              name="inputPreco"
+              class="p-inputtext col-12"
+              [(ngModel)]="pedidoComprasItens[rowIndex].preco"
+              (ngModelChange)="calculaTotais()"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.preco | currency: "BRL" }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td>
+        {{ pedido.peso! * pedido.preco! | currency: "BRL" }}
+      </td>
+
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="number"
+              id="inputIpi"
+              name="inputipi"
+              class="p-inputtext col-12"
+              [(ngModel)]="pedidoComprasItens[rowIndex].ipi"
+              (ngModelChange)="calculaTotais()"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.ipi | percent }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input"
+            ><p-calendar
+              [(ngModel)]="pedidoComprasItens[rowIndex].prazo"
+              dateFormat="dd/mm/yy"
+              class="p-calendar-w-btn"
+            ></p-calendar>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ pedido.prazo | date: "dd/MM/yyyy" }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total:</td>
+      <td>{{total | currency: "BRL" }}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total + IPI:</td>
+      <td>{{totalIpi | currency: "BRL" }}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="paginatorleft">
+    <p-button
+      type="button"
+      icon="pi pi-plus"
+      styleClass="p-button-text"
+      (onClick)="addItem()"
+    ></p-button>
+  </ng-template>
+
+  <ng-template pTemplate="paginatorright">
+    <p-button
+      type="button"
+      icon="pi pi-cloud"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-table>

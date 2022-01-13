@@ -135,10 +135,13 @@
         value="{{ pedidoCompra.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }}"
       />
     </div>
+
+    <app-tabelaPedidoCompra [pedidoComprasItens]="pedidoCompra.PedidoComprasItens!" class="col-12"></app-tabelaPedidoCompra>
+
   </form>
 
   <hr />
-  
+
   <button
     pButton
     name="btExcluir"
